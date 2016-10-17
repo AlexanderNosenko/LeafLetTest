@@ -16,7 +16,7 @@
 #
 default: &default
   adapter: postgis
-  host: localhost
+  # host: localhost
   encoding: unicode
   username: dev1
   password: password
@@ -88,5 +88,3 @@ production:
   username: LeafTest
   password: <%= ENV['LEAFTEST_DATABASE_PASSWORD'] %>
   url: <%= ENV['DATABASE_URL'].to_s.sub(/^postgres/, "postgis") %>
-  postgis_extension: postgis
-  schema_search_path: public,postgis
