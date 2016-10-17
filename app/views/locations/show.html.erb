@@ -1,0 +1,23 @@
+<div id="map"></div>
+<%content_for :scripts do%>
+<script>
+	var location_id = window.location.pathname.match(/\/[0-9]+/)[0].replace('/','');
+	$.get('/locations.json?id=' + location_id, function (data) {
+		data = data[0];
+
+		var points = [];
+		data.forEach( function(point, index) {
+			points.push({'lat': point[0], 'lng': point[1]});
+		});
+
+		map.addLayer(new L.polyline(arrayOfPoints(points), {
+			color: 'red',
+			weight: 3,
+			opacity: 0.5,
+			smoothFactor: 1
+			}
+		));
+	}
+);
+</script>
+<%end%>

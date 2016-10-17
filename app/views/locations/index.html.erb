@@ -1,0 +1,19 @@
+<table class="table">
+ <thead>
+  <tr>
+    <th>#</th>
+    <th>Name</th>
+    <th>Coordinates</th>
+  </tr>
+ </thead>
+ <tbody>
+  <%@locations.each do |loc|%>
+  <tr class="<%= loc.id.odd? ? 'success' : 'info' %>">
+   <td><%=loc.id%></td>
+   <td><%=loc.name%></td>
+   <td><%=loc.area%></td>
+  </tr>
+  <%end%>
+ </tbody>
+</table>
+<%= will_paginate @locations %>
