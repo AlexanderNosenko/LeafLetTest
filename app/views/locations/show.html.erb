@@ -1,15 +1,16 @@
 <div id="map"></div>
+<%content_for :jumbo_title do%>
+	<h1 id="jumbo-title">Leaflet <%=@location.name%></h1>
+<%end%>
 <%content_for :scripts do%>
 <script>
 	var location_id = window.location.pathname.match(/\/[0-9]+/)[0].replace('/','');
-	$.get('/locations.json?id=' + location_id, function (data) {
+	$.get('/locations/'+location_id+'.json', function (data) {
 		data = data[0];
-
 		var points = [];
 		data.forEach( function(point, index) {
 			points.push({'lat': point[0], 'lng': point[1]});
 		});
-
 		map.addLayer(new L.polyline(arrayOfPoints(points), {
 			color: 'red',
 			weight: 3,
