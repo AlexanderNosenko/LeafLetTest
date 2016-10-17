@@ -2,7 +2,7 @@ class CreateLocations < ActiveRecord::Migration
   def change
     create_table :locations do |t|
       t.string :name
-      t.geometry :area
+      #t.geometry :area
 
       t.timestamps null: false
     end
