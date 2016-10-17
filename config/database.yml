@@ -87,3 +87,5 @@ production:
   database: LeafTest_production
   username: LeafTest
   password: <%= ENV['LEAFTEST_DATABASE_PASSWORD'] %>
+  postgis_extension: postgis
+  schema_search_path: public,postgis
